@@ -1,12 +1,88 @@
 ---
 output: html_document
+references:
+- id: idowu
+  title: "Pore-Scale modeling: Stochastic network generation and modeling of rate effects in water flooding"
+  author:
+  - family: Idowu
+    given: Nasiru Abiodun
+  container-title: A dissertation submitted in fulfillments of the requirements for the Degree of Philosophy of the Imperial College London
+  issued:
+    year: 2009
+- id: blunt
+  title: Flow in porous media — Pore-Network Models and multiphase flow
+  author:
+  - family: Blunt
+    given: Martin
+  container-title: Current opinion in colloid \& interface science
+  volume: 6
+  issue: 3
+  page: 197-207
+  type: article-journal
+  issued:
+    year: 2001
+  publisher: Elsevier
+- id: hunt
+  title: Applications of percolation theory to porous media with distributed local conductances
+  author:
+  - family: Hunt
+    given: AG
+  container-title: Advances in Water Resources
+  volume: 24
+  issue: 3
+  page: 279-307
+  type: article-journal
+  issued:
+    year: 2001
+  publisher: Elsevier
+- id: oren
+  title: Extending predictive capabilities to network models
+  author:
+  - family: Oren
+    given: P-E
+  - family: Bakke
+    given: Stig
+  - family: Arntzen
+    given: Ole Jako
+  container-title: SPE Journal
+  volume: 3
+  issue: 04
+  page: 324-336
+  type: article-journal
+  issued:
+    year: 1998
+  publisher: Society of Petroleum Engineers
+- id: sok
+  title: "Direct and stochastic generation of network models from tomographic images: effect of topology on residual saturations"
+  author:
+  - family: Sok
+    given: R.M.
+  - family: Knackstedt
+    given: M.A
+  - family: Sheppard
+    given: A.P.
+  - family: Pinczewski
+    given: W.V.
+  - family: Lindquist
+    given: W.B.
+  - family: Venkatarangan
+    given: A.
+  - family: Paterson
+    given: L.
+  container-title: Transport in Porous Media
+  volume: 46
+  page: 345-371
+  type: article-journal
+  issued:
+    year: 2002
+  publisher: Springer
 ---
 # Synopsis
 This MATLAB toolbox contains tools to generate stochastic pore network models. In the pore network model representation, the pore space is a graph whose nodes are called bodies and edges are called throats. Also provided are class definitions for bodies, throats and a wrapper class for the pore space. We provide brief descriptions of important classes later in this document.
 
 # Motivation
-A review of pore network modeling from the 1950s to 2001 is in [1]. Pore network models have extensively been used to simulate the dynamic flow of fluids through porous media (see [4] for example), as well as percolation type processes. A review of percolation-type applications is in [2].
-Stochastic pore network models are pore network models with statistical properties that match those of networks extracted from images of real rocks. Different methods have been proposed to generate stochastic pore network models [5], [3]. An implementation of the algorithm in the second reference was made available online but the throat length distribution does not match the input. We propose a new algorithm below that is specifically designed to match target distributions for certain properties of the network, such as body or throat radii.
+A review of pore network modeling from the 1950s to 2001 is in [@blunt]. Pore network models have extensively been used to simulate the dynamic flow of fluids through porous media (see [@oren] for example), as well as percolation type processes. A review of percolation-type applications is in [@hunt].
+Stochastic pore network models are pore network models with statistical properties that match those of networks extracted from images of real rocks. Different methods have been proposed to generate stochastic pore network models [@sok], [@idowu]. An implementation of the algorithm in the second reference was made available online but the throat length distribution does not match the input. We propose a new algorithm below that is specifically designed to match target distributions for certain properties of the network, such as body or throat radii.
 
 # Pore network generation algorithm
 
@@ -165,9 +241,9 @@ legend('generated','original')
 ![Alt text](example/figures/throatLen.png?raw=true "Throat length distribution")
 
 **Generate correlation between pore radius and throat radius**
-This plot is equivalent to the one in figure 3.8 in [3].
+This plot is equivalent to the one in figure 3.8 in [@idowu].
 ```matlab
-%% Plot correlation between pore radius and throat radius as in Idowu,2009
+%% Plot correlation between pore radius and throat radius as in Idowu 2009
 corr = zeros(length(pore.bodies),2);
 for iBody = 1:length(pore.bodies)
     neighbor_throats = pore.bodies{iBody}.getNeighborThroats;
@@ -207,9 +283,3 @@ A class to contain properties that the throat needs to know about the bodies it 
 A wrapper class to represent the pore space. During initialization of a PoreSpace object, we also initialize the list of throats that are connected to each body to make subsequent computations faster. 
 
 # References
-1. Blunt, Martin. 2001. “Flow in Porous Media — Pore-Network Models and Multiphase Flow.” Current Opinion in Colloid & Interface Science 6 (3). Elsevier: 197–207.
-2. Hunt, AG. 2001. “Applications of Percolation Theory to Porous Media with Distributed Local Conductances.” Advances in Water Resources 24 (3). Elsevier: 279–307.
-3. Idowu, Nasiru Abiodun. 2009. “Pore-Scale Modeling: Stochastic Network Generation and Modeling of Rate Effects in Water Flooding.” A Dissertation Submitted in Fulfillments of the Requirements for the Degree of Philosophy of the Imperial College London.
-4. Oren, P-E, Stig Bakke, and Ole Jako Arntzen. 1998. “Extending Predictive Capabilities to Network Models.” SPE Journal 3 (4). Society of Petroleum Engineers: 324–36.
-5. Sok, R.M., M.A Knackstedt, A.P. Sheppard, W.V. Pinczewski, W.B. Lindquist, A. Venkatarangan, and L. Paterson. 2002. “Direct and Stochastic Generation of Network Models from Tomographic Images: Effect of Topology on Residual Saturations.” Transport in Porous Media 46. Springer: 345–71.
-
