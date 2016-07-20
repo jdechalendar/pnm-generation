@@ -1,6 +1,3 @@
----
-output: html_document
----
 # Synopsis
 This MATLAB toolbox contains tools to generate stochastic pore network models. In the pore network model representation, the pore space is a graph whose nodes are called bodies and edges are called throats. Also provided are class definitions for bodies, throats and a wrapper class for the pore space. We provide brief descriptions of important classes later in this document.
 
