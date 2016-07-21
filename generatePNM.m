@@ -9,7 +9,7 @@ PoreData_compressed % load data from Imperial college
 target.pore_rad = PoreData(:,3)*1e6; % in microm
 plotBod = 1; % set this to 0 to not plot bodies at the end of the generation process
 maxPores = 10000;
-target.size = 500;
+target.size = 1000;
 target.minSphereDist = 5; %  note that this is throat length as defined by the distance between spheres, not the distance between the two centers
 target.porosity = 0.1;
 % Optional: set a minimum body radius (0 if none)
@@ -74,7 +74,7 @@ opt.kde_npoints=2^9;
 kdeJAC(vec,opt)
 legend('generated','original')
 %title('Pore throat radii')
-print(99, fullfile(pathNm,'figures', 'throatRad.png'), '-dpng')
+%print(99, fullfile(pathNm,'figures', 'throatRad.png'), '-dpng')
 %% 2.3 Plot distribution for coordination number
 adjtest = zeros(length(bodies));
 for iThroat = 1:length(throats)
@@ -94,7 +94,7 @@ opt.kde_npoints = 2^7;
 kdeJAC(vec, opt)
 legend('generated','original')
 %title('Coordination number')
-print(99, fullfile(pathNm,'figures', 'coord.png'), '-dpng')
+%print(99, fullfile(pathNm,'figures', 'coord.png'), '-dpng')
 %% 2.5 Plot distribution for throat length
 throatLength = zeros(length(throats),1);
 for iThroat=1:length(throats)
@@ -111,7 +111,7 @@ setPlotJAC(99, 'graph')
 kdeJAC(vec)
 legend('generated','original')
 %title('Throat lengths')
-print(99, fullfile(pathNm,'figures', 'throatLen.png'), '-dpng')
+%print(99, fullfile(pathNm,'figures', 'throatLen.png'), '-dpng')
 %% 2.5 Plot results so far - throats and bodies
 figure(1); clf
 opt.color = 'same';
