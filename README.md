@@ -210,3 +210,15 @@ A wrapper class to represent the pore space. During initialization of a PoreSpac
 4. Oren, P-E, Stig Bakke, and Ole Jako Arntzen. 1998. “Extending Predictive Capabilities to Network Models.” SPE Journal 3 (4). Society of Petroleum Engineers: 324–36.
 5. Sok, R.M., M.A Knackstedt, A.P. Sheppard, W.V. Pinczewski, W.B. Lindquist, A. Venkatarangan, and L. Paterson. 2002. “Direct and Stochastic Generation of Network Models from Tomographic Images: Effect of Topology on Residual Saturations.” Transport in Porous Media 46. Springer: 345–71.
 
+# Citation
+If you find this code useful for your research, please cite:
+````
+@misc{Chalendar2016,
+  author = {de Chalendar, Jacques},
+  title = {pnm-generation},
+  year = {2016},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/jdechalendar/pnm-generation}},
+}
+```
